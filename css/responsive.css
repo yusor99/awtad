@@ -1,28 +1,80 @@
-@media screen and (max-width: 1067px){
- .container{
-   margin: 0px 30px;
- }
+@media screen and (max-width: 1067px) {
+  .container {
+    margin: 0px 30px;
+  }
 }
-@media screen and (max-width: 800px){
-    .blog-list{
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 40px;
-     }
+@media screen and (max-width: 800px) {
+  .blog-list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+  }
 }
-@media screen and (max-width: 550px){
-    .blog-list{
-        grid-template-columns: repeat(1, 1fr);
-     }
+@media screen and (max-width: 550px) {
+  .blog-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
-@media screen and (max-width: 450px){
-    .home-cover .overlay h1{
-        font-size: 36px;
-    }
-    .home-cover .overlay p{
-        font-size: 20px;
-    }
+@media screen and (max-width: 450px) {
+  .home-cover {
+    height: 400px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .goals h1,
+  .names h1 {
+    font-size: 25px;
+  }
+  .names,
+  .goals p {
+    font-size: 20px;
+  }
+  .heading-about h1 {
+    font-size: 30px;
+  }
+  .heading-about h2 {
+    font-size: 25px;
+    color: #750606;
+  }
+  .heading-about h3 {
+    font-size: 20px;
+  }
+  .logo {
+    width: 70px;
+    height: 70px;
+    margin-left: 2px;
+  }
+  header {
+    font-size: 21px;
+    font-weight: 700;
+  }
+  header .content ul li {
+    margin-right: 15px;
+  }
+  .logo-name {
+    font-size: 30px;
+  }
+  footer {
+    background-color: #eeeeeeab;
+    padding: 10px 0;
+    margin-top: 5px;
+  }
 
-    .home-cover{
-        height: 400px;
-    }
+  .footer {
+    font-weight: 500;
+    font-size: 15px;
+    direction: rtl;
+    line-height: 2;
+    display: block;
+  }
+
+  footer img {
+    width: 20px;
+    height: 20px;
+  }
+  .footer .contact,
+  .footer .info {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }

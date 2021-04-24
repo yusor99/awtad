@@ -30,9 +30,8 @@ const About = (props) => {
           </section>
         </div>
         <section className=" container goals">
-          <h1>هدف المجلة : </h1>
+          <h1>اهداف المجلة : </h1>
           <p>
-            اهداف المجلة :
             <ul>
               <li>
                 نشر البحوث المبتكرة التي يقدمها الباحثون في المجالات العلمية
