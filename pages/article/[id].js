@@ -10,20 +10,17 @@ const Article = (props) => {
   return (
     <>
       <Head>
-        <title>{props.post.article.title}</title>
-        <meta property="og:title" content={props.post.article.title} />
-        <meta
-          property="og:description"
-          content={props.post.article.description}
-        />
+        <title>{props.post.title}</title>
+        <meta property="og:title" content={props.post.title} />
+        <meta property="og:description" content={props.post.description} />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content={props.post.article.image} />
+        <meta property="og:image" content={props.post.image} />
       </Head>
       <Header />
       <main>
         <section className="title-box container">
           <div>
-            <h1>{props.post.article.title}</h1>
+            <h1>{props.post.title}</h1>
             <small>By FikraSpace</small>
           </div>
           <span>June 19, 2020</span>
@@ -32,7 +29,7 @@ const Article = (props) => {
         <section className="cover container">
           <img
             style={{ height: 500, objectFit: "cover" }}
-            src={props.post.article.image}
+            src={props.post.image}
           />
           <p className="caption">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -102,26 +99,6 @@ const Article = (props) => {
     </>
   );
 };
-
-// export async function getStaticPaths() {
-//   const res = await fetch("https://mashriq.herokuapp.com/dash/v1/articles");
-//   const posts = await res.json();
-
-//   const paths = posts.articles.map((post) => ({
-//     params: { id: post.id.toString() },
-//   }));
-
-//   return { paths, fallback: false };
-// }
-
-// export async function getStaticProps({ params }) {
-//   const res = await fetch(
-//     `https://mashriq.herokuapp.com/dash/v1/article/${params.id}`
-//   );
-
-//   const post = await res.json();
-//   return { props: { post } };
-// }
 
 export async function getServerSideProps({ params }) {
   const res = await fetch(

@@ -12,38 +12,33 @@ const Home = (props) => {
   return (
     <>
       <Head>
-        <title>Simple Blog</title>
-        <meta property="og:title" content="Simple Blog" />
+        <title>مجلة اوتاد</title>
+        <meta property="og:title" content="مجلة اوتاد" />
         <meta
           property="og:description"
-          content=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Consectetur libero id faucibus nisl tincidunt. Facilisi etiam
-          dignissim diam quis enim lobortis. Elit eget gravida cum sociis
-          natoque. Purus gravida quis blandit turpis. Est pellentesque elit
-          ullamcorper dignissim cras tincidunt. Metus vulputate eu scelerisque
-          felis. Donec ac odio tempor orci. Nam aliquam sem et tortor"
+          content="مجلة أوتاد للعلوم الإنسانية مجلة علمية محكمة تصدر عن الإتحاد الدولي للمبدعين في العراق  "
         />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="/images/home-cover.png" />
+        <meta property="og:image" content="/images/logo.jpeg" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://www.fontstatic.com/f=thuluth-decorated"
+        />
       </Head>
-      <Header />
+
       <main>
         <section className="home-cover">
-          <img src="/images/home-cover.png" alt="" />
-          <div className="overlay">
-            <div className="container">
-              <h1>Simple Blog.</h1>
-              <p>A blog created by FikraCamps</p>
-            </div>
-          </div>
+          <img src="https://i.ibb.co/b6KRv9p/cover.jpg" alt="logo" />
         </section>
+        <Header />
         <section className="container blog-list">
           {props.posts.map((item) => (
             <Card key={item.id} article={item} />
           ))}
         </section>
       </main>
+
       <Footer />
     </>
   );
@@ -52,13 +47,6 @@ const Home = (props) => {
 export async function getStaticProps() {
   const res = await fetch("https://jsonplaceholder.cypress.io/todos");
   const posts = await res.json();
-
-  // const fileData = fs.readFileSync(
-  //   path.join(process.cwd(), "/file.json"),
-  //   "utf8"
-  // );
-  // //console.log(fileData)
-
   return {
     props: {
       posts,

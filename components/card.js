@@ -7,10 +7,10 @@ const Card = ({article}) =>{
           <img src={article.image} />
         </div>
         <h4>{article.title}</h4>
-        <small>By FikraSpace</small>
+    
         <div className="card-footer">
-         <Link href={`article/${article.id}`}><a>Reade article</a></Link>
-          <span>June 19, 2020</span>
+         <Link href={`article/${article.id}`}><a>Download article</a></Link>
+  
         </div>
       </div>
     )
