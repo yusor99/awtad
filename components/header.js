@@ -5,14 +5,14 @@ const Header = () => {
       <div className="container navbar-desktop">
         <div className="content">
           <ul>
-            <Link href="/pdf">
-              <li>كتب الموافقة</li>
+            <Link href="/">
+              <li>الرئيسية</li>
             </Link>
             <Link href="/about">
               <li>عن المجلة</li>
             </Link>
-            <Link href="/">
-              <li>الرئيسية</li>
+            <Link href="/pdf">
+              <li>كتب الموافقة</li>
             </Link>
           </ul>
 
