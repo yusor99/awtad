@@ -13,7 +13,7 @@ const Mobile = () => {
       <div className="container">
         <div className="mobile-nav content">
           <ul className={`active${active}`}>
-          <Link href="/">
+            <Link href="/">
               <li>الرئيسية</li>
             </Link>
             <Link href="/about">
@@ -21,6 +21,9 @@ const Mobile = () => {
             </Link>
             <Link href="/pdf">
               <li>كتب الموافقة</li>
+            </Link>
+            <Link href="/login">
+              <li>تسجيل الدخول </li>
             </Link>
           </ul>
           <div className="trigger-div">

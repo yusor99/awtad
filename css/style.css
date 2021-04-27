@@ -21,7 +21,7 @@ header {
   color: #fcae27;
   background-color: #221e13;
   padding: 0px;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 700;
 }
 
@@ -37,7 +37,7 @@ header .content ul {
   direction: rtl;
 }
 header .content ul li {
-  margin-right: 30px;
+  margin-right: 45px;
   cursor: pointer;
 }
 header .content ul li:hover {

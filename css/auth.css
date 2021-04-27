@@ -1,0 +1,13 @@
+.signup-page,
+.login-page {
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  width: 500px;
+  height: 700px;
+  display: flex;
+}
+.ant-card {
+  background: #ffffffdb;
+  border-radius: 16px;
+}

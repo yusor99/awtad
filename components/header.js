@@ -14,6 +14,9 @@ const Header = () => {
             <Link href="/pdf">
               <li>كتب الموافقة</li>
             </Link>
+            <Link href="/login">
+              <li>تسجيل الدخول </li>
+            </Link>
           </ul>
 
           <div className="logo-section">
