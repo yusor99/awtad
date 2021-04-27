@@ -13,14 +13,14 @@ const Mobile = () => {
       <div className="container">
         <div className="mobile-nav content">
           <ul className={`active${active}`}>
-            <Link href="/pdf">
-              <li>كتب الموافقة</li>
+          <Link href="/">
+              <li>الرئيسية</li>
             </Link>
             <Link href="/about">
               <li>عن المجلة</li>
             </Link>
-            <Link href="/">
-              <li>الرئيسية</li>
+            <Link href="/pdf">
+              <li>كتب الموافقة</li>
             </Link>
           </ul>
           <div className="trigger-div">

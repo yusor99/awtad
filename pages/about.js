@@ -18,7 +18,8 @@ const About = (props) => {
         />
       </Head>
       <main>
-        <Header />
+      <Header />
+        <Mobile/>
         <section className="home-cover">
           <img src="https://i.ibb.co/b6KRv9p/cover.jpg" alt="cover" />
         </section>

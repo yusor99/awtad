@@ -16,6 +16,20 @@
   }
 }
 @media screen and (max-width: 480px) {
+  .h1,
+  .h2,
+  h3 {
+    color: lightgray;
+  }
+  .h1 {
+    font-size: 15px;
+  }
+  .h2 {
+    font-size: 13px;
+  }
+  .h3 {
+    font-size: 12px;
+  }
   .home-cover {
     display: none;
   }
@@ -33,7 +47,6 @@
   }
   .heading-about h2 {
     font-size: 17px;
-    color: #a10303;
   }
   .heading-about h3 {
     font-size: 15px;
@@ -54,7 +67,7 @@
   }
   .footer {
     font-weight: 500;
-    font-size: 12px;
+    font-size: 10px;
     direction: rtl;
     line-height: 2;
     display: block;
@@ -68,6 +81,7 @@
     display: block;
     width: 100%;
     margin-bottom: 10px;
+    font-size: 13px;
   }
 }
 @media screen and (max-width: 720px) {

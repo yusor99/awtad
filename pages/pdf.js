@@ -13,10 +13,11 @@ const Pdf = () => {
         />
       </Head>
       <main>
+        <Header />
+        <Mobile />
         <section className="home-cover">
           <img src="https://i.ibb.co/b6KRv9p/cover.jpg" alt="cover" />
         </section>
-        <Header />
         <div className="container about">
           <div className="heading-about">
             <h1>مجلة أوتاد للعلوم الإنسانية</h1>
