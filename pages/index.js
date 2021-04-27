@@ -30,7 +30,7 @@ const Home = (props) => {
 
       <main>
         <Header />
-        <Mobile/>
+        <Mobile />
         <section className="home-cover">
           <img src="https://i.ibb.co/W3c3L0F/cover.jpg" alt="logo" />
         </section>

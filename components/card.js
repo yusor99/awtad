@@ -7,7 +7,7 @@ const Card = ({ article }) => {
         <img src={article.image} />
       </div>
       <h4>{article.title}</h4>
-      <div> desciption</div>
+      <div className="des"> desciption</div>
       <div className="card-footer">
         <Link href={`article/${article.id}`}>
           <a>Download article</a>

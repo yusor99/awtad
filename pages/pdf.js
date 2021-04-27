@@ -2,6 +2,7 @@ import Header from "../components/header";
 import Head from "next/head";
 import Footer from "../components/footer";
 import Link from "next/link";
+import Mobile from "./../components/mobile";
 const Pdf = () => {
   return (
     <>
@@ -50,9 +51,9 @@ https://i.ibb.co/7S7z1z6/1-page-0001.jpg
 https://i.ibb.co/x2W21sb/3-1-page-0001.jpg"
                 />
               </div>
-              <h4>استحداث مجلة علمية</h4>
 
               <div className="card-footer">
+                <h4>استحداث مجلة علمية</h4>
                 <Link href="https://i.ibb.co/7S7z1z6/1-page-0001.jpg">
                   <a>شاهد الصورة</a>
                 </Link>
@@ -65,9 +66,9 @@ https://i.ibb.co/x2W21sb/3-1-page-0001.jpg"
 https://i.ibb.co/x2W21sb/3-1-page-0001.jpg"
                 />
               </div>
-              <h4>المصادقة على تشكيل هيأة التحرير</h4>
 
               <div className="card-footer">
+                <h4>المصادقة على تشكيل هيأة التحرير</h4>
                 <Link href="https://i.ibb.co/x2W21sb/3-1-page-0001.jpg">
                   <a>شاهد الصورة</a>
                 </Link>
@@ -80,9 +81,9 @@ https://i.ibb.co/x2W21sb/3-1-page-0001.jpg"
                   https://i.ibb.co/xSLPKPT/Whats-App-Image-2021-04-22-at-10-52-13-PM-1.jpg"
                 />
               </div>
-              <h4>الامر الاداري</h4>
 
               <div className="card-footer">
+                <h4>الامر الاداري</h4>
                 <Link href="https://i.ibb.co/xSLPKPT/Whats-App-Image-2021-04-22-at-10-52-13-PM-1.jpg">
                   <a>شاهد الصورة</a>
                 </Link>

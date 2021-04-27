@@ -34,6 +34,7 @@ header .content {
 header .content ul {
   list-style-type: none;
   display: flex;
+  direction: rtl;
 }
 header .content ul li {
   margin-right: 30px;
@@ -143,10 +144,14 @@ footer img {
   color: #626161;
 }
 .blog-item .card-footer {
+  display: flex;
   margin-top: 14px;
+  justify-content: space-between;
+  color: #626161;
+  margin-bottom: 10px;
 }
 
-.blog-item .card-footer div {
+.blog-item .des {
   direction: rtl;
   color: #626161;
   font-size: 14px;
@@ -184,6 +189,7 @@ h3 {
 }
 .heading-about h3 {
   font-size: 30px;
+  color: black !important;
 }
 .goals {
   direction: rtl;

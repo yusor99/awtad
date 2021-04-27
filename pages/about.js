@@ -4,6 +4,7 @@ import Footer from "./../components/footer";
 import Head from "next/head";
 import { loadGetInitialProps } from "next/dist/next-server/lib/utils";
 
+import Mobile from "./../components/mobile";
 const About = (props) => {
   useEffect(() => {
     console.log(props);
@@ -18,8 +19,8 @@ const About = (props) => {
         />
       </Head>
       <main>
-      <Header />
-        <Mobile/>
+        <Header />
+        <Mobile />
         <section className="home-cover">
           <img src="https://i.ibb.co/b6KRv9p/cover.jpg" alt="cover" />
         </section>
