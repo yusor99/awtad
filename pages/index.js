@@ -4,6 +4,7 @@ import Card from "../components/card";
 import Head from "next/head";
 
 import { useEffect } from "react";
+import Mobile from "../components/mobile";
 
 const Home = (props) => {
   useEffect(() => {
@@ -28,10 +29,11 @@ const Home = (props) => {
       </Head>
 
       <main>
-        <section className="home-cover">
-          <img src="https://i.ibb.co/b6KRv9p/cover.jpg" alt="logo" />
-        </section>
         <Header />
+        <Mobile/>
+        <section className="home-cover">
+          <img src="https://i.ibb.co/W3c3L0F/cover.jpg" alt="logo" />
+        </section>
         <section className="container blog-list">
           {props.posts.map((item) => (
             <Card key={item.id} article={item} />
@@ -45,7 +47,7 @@ const Home = (props) => {
 };
 
 export async function getStaticProps() {
-  const res = await fetch("https://jsonplaceholder.cypress.io/todos");
+  const res = await fetch("http://awtadjournal.com/public/api/Journalnumber");
   const posts = await res.json();
   return {
     props: {

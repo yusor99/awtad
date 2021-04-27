@@ -2,7 +2,7 @@ import Link from "next/link";
 const Header = () => {
   return (
     <header>
-      <div className="container">
+      <div className="container navbar-desktop">
         <div className="content">
           <ul>
             <Link href="/pdf">
@@ -17,13 +17,8 @@ const Header = () => {
           </ul>
 
           <div className="logo-section">
-            <span className="logo-name">اوتاد</span>
             <Link href="/">
-              <img
-                src="https://i.ibb.co/PjbJFvK/logo.jpg"
-                alt="logo"
-                className="logo"
-              />
+              <span className="logo-name">اوتاد</span>
             </Link>
           </div>
         </div>

@@ -10,13 +10,64 @@
   }
 }
 @media screen and (max-width: 550px) {
-  .blog-list {
+  .blog-list,
+  .books-list {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 480px) {
   .home-cover {
-    height: 400px;
+    display: none;
+  }
+  .goals h1,
+  .names h1 {
+    font-size: 22px;
+  }
+  .names,
+  .goals p {
+    font-size: 18px;
+  }
+  .heading-about h1 {
+    margin-top: 30px;
+    font-size: 20px;
+  }
+  .heading-about h2 {
+    font-size: 17px;
+    color: #a10303;
+  }
+  .heading-about h3 {
+    font-size: 15px;
+  }
+  header {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  header .content ul li {
+    margin-right: 15px;
+  }
+  .logo-name {
+    font-size: 28px;
+  }
+  footer {
+    padding: 10px 0;
+    margin-top: 5px;
+  }
+  .footer {
+    font-weight: 500;
+    font-size: 12px;
+    direction: rtl;
+    line-height: 2;
+    display: block;
+  }
+  footer img {
+    width: 20px;
+    height: 20px;
+  }
+  .footer .contact,
+  .footer .info {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
   }
 }
 @media screen and (max-width: 720px) {
@@ -54,14 +105,12 @@
     font-size: 30px;
   }
   footer {
-    background-color: #eeeeeeab;
     padding: 10px 0;
     margin-top: 5px;
   }
-
   .footer {
     font-weight: 500;
-    font-size: 15px;
+    font-size: 17px;
     direction: rtl;
     line-height: 2;
     display: block;
