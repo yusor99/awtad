@@ -1,4 +1,4 @@
-const URL = "https://jsonplaceholder.typicode.com";
+const URL = "http://awtadjournal.com/laravel/public/api";
 
 export const login = (data, callback) => {
   fetch(`${URL}/login`, {
