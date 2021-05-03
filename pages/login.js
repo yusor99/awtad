@@ -1,12 +1,12 @@
 import { Card, Input, Row, Col, Button, message, Divider } from "antd";
-import { PhoneOutlined } from "@ant-design/icons";
+import { MailOutlined } from "@ant-design/icons";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-//import { login } from "../api";
+import { login } from "../api";
 const Login = (props) => {
   const router = useRouter();
-  const [phone, setPhone] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const inputRef2 = useRef();
@@ -17,7 +17,7 @@ const Login = (props) => {
   }, []);
   const handlSubmit = () => {
     setIsLoading(true);
-    login({ phone, password }, (err, result) => {
+    login({ email, password }, (err, result) => {
       if (err) throw err;
       if (!result.status) {
         Object.keys(result.errMsg).forEach((key) => {
@@ -27,28 +27,27 @@ const Login = (props) => {
       } else {
         localStorage.setItem("blog_token", result.token);
         localStorage.setItem("blog_user", JSON.stringify(result.user));
-        router.replace("/");
+        router.replace("/dashbord/home");
         setIsLoading(false);
       }
     });
   };
-
   return (
-    <div className="site-card-border-less-wrapper">
+    <div className=" login-page">
       <Card title="Login" bordered={true}>
         <Row gutter={[20, 20]}>
           <Col span={24}>
             <Input
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="Phone"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="example@gmail.com"
               ref={inputRef}
               onKeyPress={(e) => {
                 if (e.key === "Enter") {
                   inputRef2.current.focus();
                 }
               }}
-              suffix={<PhoneOutlined />}
+              suffix={<MailOutlined />}
             />
           </Col>
           <Col span={24}>
@@ -65,9 +64,7 @@ const Login = (props) => {
             />
           </Col>
           <Divider />
-          <Link href="/forgetPassword" style={{ color: "#87d068" }}>
-            Forgot Password?
-          </Link>
+
           <Col span={24}>
             <Button
               loading={isLoading}

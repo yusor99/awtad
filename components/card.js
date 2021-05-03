@@ -4,15 +4,15 @@ const Card = ({ article }) => {
   return (
     <div className="blog-item">
       <div className="img">
-        <img src={article.image} />
+        <img src={article.ImgUrl} />
       </div>
-      <h4>{article.title}</h4>
-      <div className="des"> desciption</div>
+      <h4>{article.Title}</h4>
+      <div className="des"> {article.Description}</div>
       <div className="card-footer">
-        <Link href={`article/${article.id}`}>
+        <Link href={`${article.PdfUrl}`}>
           <a>Download article</a>
         </Link>
-        <span>June 19, 2020</span>
+        <span>{article.Createat}</span>
       </div>
     </div>
   );

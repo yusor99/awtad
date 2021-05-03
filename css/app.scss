@@ -1,0 +1,87 @@
+$headerHeigth: 65px;
+.header-d {
+  background-color: #221e13;
+  height: $headerHeigth;
+  .content {
+    height: $headerHeigth;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .head-name-d {
+    color: white !important;
+    font-size: 20px !important;
+    align-content: center;
+  }
+  .user-account {
+    display: flex;
+    align-content: center;
+    color: white !important;
+    font-size: 20px !important;
+  }
+  h3 {
+    margin-right: 5px;
+    color: white;
+  }
+}
+
+.login-page {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-page {
+  .search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+
+  .blog-card {
+    img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    h3 {
+      margin: 0;
+      margin-top: 5px;
+    }
+    small {
+      color: gray;
+    }
+    .blog-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+      span {
+        color: gray;
+      }
+    }
+  }
+}
+.create-page {
+  .search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+  .input-title {
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0;
+  }
+
+  .ql-editor {
+    padding: 0;
+  }
+}

@@ -29,11 +29,7 @@ const Pdf = () => {
           <div className="books-list">
             <div className="blog-item">
               <div className="img">
-                <img
-                  src="https://i.ibb.co/nMXyMyv/1-page-0001.jpg
-https://i.ibb.co/7S7z1z6/1-page-0001.jpg
-https://i.ibb.co/x2W21sb/3-1-page-0001.jpg"
-                />
+                <img src="https://i.ibb.co/nMXyMyv/1-page-0001.jpg" />
               </div>
               <div className="card-footer">
                 <h4>موافقة دار الكتب</h4>

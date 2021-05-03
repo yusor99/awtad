@@ -21,8 +21,8 @@ header {
   color: #fcae27;
   background-color: #221e13;
   padding: 0px;
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 25px;
+  font-weight: 500;
 }
 
 header .content {
@@ -35,13 +35,15 @@ header .content ul {
   list-style-type: none;
   display: flex;
   direction: rtl;
+
+  margin-top: 1em;
 }
 header .content ul li {
   margin-right: 45px;
   cursor: pointer;
 }
 header .content ul li:hover {
-  color: #fcfaf3;
+  color: lightgray;
 }
 .logo-name {
   font-family: "thuluth-decorated";
@@ -74,18 +76,23 @@ p.dots {
 footer {
   background-color: #221e13;
   padding: 20px 0px;
-  margin-top: 10px;
+  margin-top: 100px;
 }
 
 .footer {
-  font-weight: 700;
-  font-size: 17px;
+  font-size: 15px;
   direction: rtl;
   line-height: 3;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #fcfaf3;
+  color: lightgray;
+}
+.copyright {
+  color: lightgray;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 footer img {
@@ -168,17 +175,7 @@ footer img {
 .about {
   display: block;
 }
-.h1 {
-  font-size: 20px;
-  color: #d40505;
-}
-.h2 {
-  font-size: 18px;
-  color: #750606;
-}
-h3 {
-  font-size: 17px;
-}
+
 .heading-about h1 {
   font-size: 70px;
   color: #d40505;
@@ -213,7 +210,7 @@ h3 {
   margin-bottom: 2%;
 }
 .sec-names {
-  color: #585858;
+  color: #626161;
   max-height: 500px;
   overflow: auto;
 }

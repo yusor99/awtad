@@ -19,7 +19,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 496px) {
   .activetrue {
     left: 0px;
     align-items: center;
@@ -52,6 +52,9 @@
   }
   .container {
     max-width: 90%;
+  }
+  header {
+    display: none;
   }
 }
 @keyframes twistInLeft {

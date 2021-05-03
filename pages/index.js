@@ -2,13 +2,23 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import Card from "../components/card";
 import Head from "next/head";
-
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Mobile from "../components/mobile";
-
-const Home = (props) => {
+import { useRouter } from "next/router";
+import { getData } from "../api";
+const Home = () => {
+  const router = useRouter();
+  const [data, setData] = useState([]);
+  const [orgdata, setorgData] = useState([]);
   useEffect(() => {
-    console.log(props);
+    getData((err, result) => {
+      if (err) throw err;
+      else {
+        setData(result);
+        setorgData(result);
+        setLoading(false);
+      }
+    });
   }, []);
   return (
     <>
@@ -20,7 +30,7 @@ const Home = (props) => {
           content="مجلة أوتاد للعلوم الإنسانية مجلة علمية محكمة تصدر عن الإتحاد الدولي للمبدعين في العراق  "
         />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="/images/logo.jpeg" />
+        <meta property="og:image" content="https://i.ibb.co/PjbJFvK/logo.jpg" />
         <link
           rel="stylesheet"
           type="text/css"
@@ -35,8 +45,10 @@ const Home = (props) => {
           <img src="https://i.ibb.co/W3c3L0F/cover.jpg" alt="logo" />
         </section>
         <section className="container blog-list">
-          {props.posts.map((item) => (
-            <Card key={item.id} article={item} />
+          {data.map((article) => (
+            <Col md={8} sm={12} xs={24} key={article.id}>
+              <Card item={article} />
+            </Col>
           ))}
         </section>
       </main>
@@ -45,15 +57,4 @@ const Home = (props) => {
     </>
   );
 };
-
-export async function getStaticProps() {
-  const res = await fetch("http://awtadjournal.com/public/api/Journalnumber");
-  const posts = await res.json();
-  return {
-    props: {
-      posts,
-    },
-  };
-}
-
 export default Home;

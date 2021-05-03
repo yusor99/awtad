@@ -5,11 +5,9 @@ const Footer = () => {
         <div className="footer">
           <div className="info">
             <ul>
-              <li className="h1"> مجلة فصلية ( انسانية - علمية )</li>
-              <li className="h2"> تنشر البحوث ( الكتروني - ورقي )</li>
-              <li className="h3">
-                رقم الايداع في دار الكتب والوثائق في بغداد ( 2486 )
-              </li>
+              <li> مجلة فصلية ( انسانية - علمية )</li>
+              <li> تنشر البحوث ( الكتروني - ورقي )</li>
+              <li>رقم الايداع في دار الكتب والوثائق في بغداد ( 2486 )</li>
             </ul>
           </div>
           <div className="contact">
@@ -32,6 +30,9 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+        <span className="copyright">
+          Copyright © 2021 by Mohammed Fakhri and Yusor Ahmad{" "}
+        </span>
       </div>
     </footer>
   );

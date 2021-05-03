@@ -15,12 +15,7 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
-@media screen and (max-width: 480px) {
-  .h1,
-  .h2,
-  h3 {
-    color: lightgray;
-  }
+@media screen and (max-width: 496px) {
   .h1 {
     font-size: 15px;
   }
@@ -67,7 +62,6 @@
     margin-top: 5px;
   }
   .footer {
-    font-weight: 500;
     font-size: 10px;
     direction: rtl;
     line-height: 2;
@@ -85,7 +79,7 @@
     font-size: 13px;
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 745px) {
   .goals h1,
   .names h1 {
     font-size: 25px;

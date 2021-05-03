@@ -1,5 +1,5 @@
 import { Card, Input, Row, Col, Button, message, Divider } from "antd";
-import { UserOutlined, PhoneOutlined, MailOutlined } from "@ant-design/icons";
+import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -9,7 +9,6 @@ const SignUp = (props) => {
   const router = useRouter();
   const [email, setEmail] = useState();
   const [name, setName] = useState();
-  const [phone, setPhone] = useState();
   const [password, setPassword] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef();
@@ -21,7 +20,7 @@ const SignUp = (props) => {
   }, []);
   const handlSubmit = () => {
     setIsLoading(true);
-    register({ phone, password, name }, (err, result) => {
+    register({ email, password, name }, (err, result) => {
       if (err) throw err;
       if (!result.status) {
         Object.keys(result.errMsg).forEach((key) => {
@@ -31,7 +30,7 @@ const SignUp = (props) => {
       } else {
         localStorage.setItem("blog_token", result.token);
         localStorage.setItem("blog_user", JSON.stringify(result.user));
-        router.replace("/");
+        router.replace("/dashbord/home");
         setIsLoading(false);
       }
     });
@@ -57,16 +56,16 @@ const SignUp = (props) => {
           </Col>
           <Col span={24}>
             <Input
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="Phone"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="example@gmail.com"
               ref={inputRef2}
               onKeyPress={(e) => {
                 if (e.key === "Enter") {
                   inputRef3.current.focus();
                 }
               }}
-              suffix={<PhoneOutlined />}
+              suffix={<MailOutlined />}
             />
           </Col>
           <Col span={24}>
