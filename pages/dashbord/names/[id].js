@@ -10,22 +10,11 @@ const normFile = (e) => {
   console.log("Upload event:", e);
   return e && e.fileList[0];
 };
-const Create = () => {
+const CreateNames = () => {
   const [Name, setName] = useState("");
   const [position, setPosition] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
-
-  useEffect(() => {
-    if (router && router.query) {
-      getOneData(router.query.id, (err, result) => {
-        {
-          setName(result.article.Name);
-          setPosition(result.article.position);
-        }
-      });
-    }
-  }, [router]);
 
   const handleNew = () => {
     setLoading(true);
@@ -35,13 +24,7 @@ const Create = () => {
         position,
       },
       (err, result) => {
-        if (err) throw err;
-        if (!result.status) {
-          Object.keys(result.errMsg).forEach((key) => {
-            message.error(result.errMsg[key]);
-          });
-          setLoading(false);
-        } else {
+        {
           router.push("/dashbord/home");
         }
       }
@@ -89,21 +72,10 @@ const Create = () => {
               onChange={(e) => setPosition(e.target.value)}
             />
           </Form.Item>
-          <Button
-            loading={loading}
-            type="primary"
-            onClick={handleNew}
-            disabled={Title && ImgUrl && Description && PdfUrl ? false : true}
-          >
-            Save
-          </Button>
-          <Button type="primary" danger onClick={handelDelete}>
-            <DeleteOutlined />
-          </Button>
         </Form>
       </main>
     </div>
   );
 };
 
-export default Create;
+export default CreateNames;

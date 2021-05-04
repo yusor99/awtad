@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Mobile from "../components/mobile";
 import { useRouter } from "next/router";
 import { getData } from "../api";
+import { Col } from "antd";
 const Home = () => {
   const router = useRouter();
   const [data, setData] = useState([]);
@@ -16,7 +17,6 @@ const Home = () => {
       else {
         setData(result);
         setorgData(result);
-        setLoading(false);
       }
     });
   }, []);

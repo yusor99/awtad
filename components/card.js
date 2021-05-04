@@ -1,18 +1,18 @@
 import Link from "next/link";
 
-const Card = ({ article }) => {
+const Card = ({ item }) => {
   return (
     <div className="blog-item">
       <div className="img">
-        <img src={article.ImgUrl} />
+        <img src={item.ImgUrl} />
       </div>
-      <h4>{article.Title}</h4>
-      <div className="des"> {article.Description}</div>
+      <h4>{item.Title}</h4>
+      <div className="des"> {item.Description}</div>
       <div className="card-footer">
-        <Link href={`${article.PdfUrl}`}>
+        <Link href={`${item.PdfUrl}`}>
           <a>Download article</a>
         </Link>
-        <span>{article.Createat}</span>
+        <span>{item.Createat}</span>
       </div>
     </div>
   );
