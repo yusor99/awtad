@@ -1,15 +1,10 @@
 import { PureHeader } from "../../../components/dashbord/main";
-import { Input, Button, Card, message, Popover, Form, Upload } from "antd";
-import { DeleteOutlined } from "@ant-design/icons";
-//import ReactQuill from "react-quill";
+import { Input, Button, Card, message, Form, Upload } from "antd";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { addData, getOneData, deleteOneData } from "../../../api";
+import { addData, getOneData } from "../../../api";
 import { UploadOutlined, InboxOutlined } from "@ant-design/icons";
-const normFile = (e) => {
-  console.log("Upload event:", e);
-  return e && e.fileList[0];
-};
+
 const Create = () => {
   const [Title, setTitle] = useState("");
   const [PdfUrl, setFile] = useState("");
@@ -18,26 +13,13 @@ const Create = () => {
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
-
-  /**  useEffect(() => {
-    if (router && router.query) {
-      getOneData(router.query.id, (err, result) => {
-        {
-          setFile(result.article.file);
-          setDate(result.article.date);
-          setTitle(result.article.title);
-          setImage(result.article.image);
-          setDescription(result.article.description);
-        }
-      });
+  const normFile = (e) => {
+    console.log("Upload event:", e);
+    if (Array.isArray(e)) {
+      return e;
     }
-  }, [router]); */
-
-  var ReactQuill;
-  if (typeof window !== "undefined") {
-    //ReactQuill = require("react-quill");
-  }
-
+    return e && e.fileList;
+  };
   const handleNew = () => {
     setLoading(true);
     addData(
@@ -46,7 +28,6 @@ const Create = () => {
         Description,
         ImgUrl,
         PdfUrl,
-        // athor: Number(JSON.parse(localStorage.getItem("blog_user")).id),
       },
       (err, result) => {
         if (err) throw err;
@@ -61,29 +42,12 @@ const Create = () => {
       }
     );
   };
-
-  const handelDelete = () => {
-    deleteOneData(router.query.id, (err, result) => {
-      if (err) throw err;
-      else router.replace("/");
-    });
-  };
-
   return (
     <div className="create-page">
       <PureHeader />
 
       <main className="container">
         <div className="search-box">
-          <Popover content={<img src={ImgUrl && ImgUrl} />}>
-            <Input
-              style={{ width: 300 }}
-              placeholder="https://example/image.png"
-              value={ImgUrl}
-              onChange={(e) => setImage(e.target.value)}
-            />
-          </Popover>
-
           <Button
             loading={loading}
             type="primary"
@@ -91,9 +55,6 @@ const Create = () => {
             disabled={Title && ImgUrl && Description && PdfUrl ? false : true}
           >
             Save
-          </Button>
-          <Button type="primary" danger onClick={handelDelete}>
-            <DeleteOutlined />
           </Button>
         </div>
         <Input.TextArea
@@ -118,26 +79,23 @@ const Create = () => {
           <Form>
             <Form.Item
               name="upload"
-              label="Upload image"
+              label="Upload image "
               valuePropName="fileList"
               getValueFromEvent={normFile}
-              multiple={false}
-              value={ImgUrl}
-              onChange={setImage(normFile)}
+              extra=""
+              onChange={(e) => setFile(normFile)}
             >
               <Upload name="logo" action="/upload.do" listType="picture">
-                <Button icon={<UploadOutlined />}>Click to upload image</Button>
+                <Button icon={<UploadOutlined />}>Click to upload file</Button>
               </Upload>
             </Form.Item>
-            <Form.Item label="Dragger" style={{ maxWidth: 500 }}>
+            <Form.Item label="upload file">
               <Form.Item
                 name="dragger"
                 valuePropName="fileList"
                 getValueFromEvent={normFile}
-                value={PdfUrl}
                 noStyle
-                onChange={setFile(normFile)}
-                multiple={false}
+                onChange={(e) => setFile(normFile)}
               >
                 <Upload.Dragger name="files" action="/upload.do">
                   <p className="ant-upload-drag-icon">
