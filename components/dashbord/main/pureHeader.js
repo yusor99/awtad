@@ -18,7 +18,7 @@ export const PureHeader = () => {
             <Link href="/dashbord/names">
               <li>اسرة المجلة</li>
             </Link>
-            <Link href="/dashbord/books">
+            <Link href="/">
               <li>كتب الموافقة</li>
             </Link>
           </ul>
