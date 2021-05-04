@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { addData, getOneData } from "../../../api";
 import { UploadOutlined, InboxOutlined } from "@ant-design/icons";
-
+//out
 const Create = () => {
   const [Title, setTitle] = useState("");
   const [PdfUrl, setFile] = useState("");
