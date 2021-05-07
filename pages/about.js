@@ -1,17 +1,18 @@
 import Header from "./../components/header";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Footer from "./../components/footer";
 import Head from "next/head";
 import Mobile from "./../components/mobile";
-import Item from "antd/lib/list/Item";
 import { Row, Col } from "antd";
-import Names from "./../components/dashbord/names";
+import Names2 from "./../components/dashbord/names2";
+import { getDataName } from "../api";
 const About = () => {
+  const [dataName, setDataName] = useState([]);
   useEffect(() => {
     getDataName((err, result) => {
       if (err) throw err;
       else {
-        setData(result.data);
+        setDataName(result.data);
       }
     });
   }, []);
@@ -87,7 +88,7 @@ const About = () => {
             <section className="container blog-list">
               {dataName.map((name) => (
                 <Col md={8} sm={12} xs={24} key={name.id}>
-                  <Names item={name} />
+                  <Names2 item={name} />
                 </Col>
               ))}
             </section>
