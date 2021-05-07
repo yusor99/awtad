@@ -12,10 +12,10 @@ export const PureHeader = () => {
       <div className="container">
         <div className="content">
           <ul>
-            <Link href="/">
+            <Link href="/dashbord/home">
               <li>المجلات</li>
             </Link>
-            <Link href="/dashbord/names">
+            <Link href="/dashbord/CreateNames">
               <li>اسرة المجلة</li>
             </Link>
             <Link href="/">

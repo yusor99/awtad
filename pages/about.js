@@ -2,12 +2,17 @@ import Header from "./../components/header";
 import { useEffect } from "react";
 import Footer from "./../components/footer";
 import Head from "next/head";
-import { loadGetInitialProps } from "next/dist/next-server/lib/utils";
-
 import Mobile from "./../components/mobile";
-const About = (props) => {
+import Item from "antd/lib/list/Item";
+import { Row, Col } from "antd";
+const About = () => {
   useEffect(() => {
-    console.log(props);
+    getDataName((err, result) => {
+      if (err) throw err;
+      else {
+        setData(result);
+      }
+    });
   }, []);
   return (
     <>
@@ -22,7 +27,7 @@ const About = (props) => {
         <Header />
         <Mobile />
         <section className="home-cover">
-          <img src="https://i.ibb.co/b6KRv9p/cover.jpg" alt="cover" />
+          <img src="https://i.ibb.co/W3c3L0F/cover.jpg" alt="logo" />
         </section>
         <div className="container about">
           <section className="heading-about">
@@ -78,13 +83,13 @@ const About = (props) => {
         <section className="  container names">
           <h1>اسرة المجلة</h1>
           <div className="sec-names">
-            <ul>
-              {props.names.map((item) => (
-                <li key={item.id} name={item}>
-                  {item.title}
-                </li>
+            <Row>
+              {data.map((name) => (
+                <Col md={8} sm={12} xs={24} key={name.id}>
+                  {Item.Position}.{Item.Name}
+                </Col>
               ))}
-            </ul>
+            </Row>
           </div>
         </section>
         <Footer />
@@ -92,13 +97,4 @@ const About = (props) => {
     </>
   );
 };
-export async function getStaticProps() {
-  const res = await fetch("https://jsonplaceholder.cypress.io/todos");
-  const names = await res.json();
-  return {
-    props: {
-      names,
-    },
-  };
-}
 export default About;

@@ -19,14 +19,9 @@ const Login = (props) => {
     setIsLoading(true);
     login({ email, password }, (err, result) => {
       if (err) throw err;
-      if (!result.status) {
-        Object.keys(result.errMsg).forEach((key) => {
-          message.error(result.errMsg[key]);
-        });
-        setIsLoading(false);
-      } else {
+      else {
         localStorage.setItem("blog_token", result.token);
-        localStorage.setItem("blog_user", JSON.stringify(result.user));
+        localStorage.setItem("blog_user", JSON.stringify(result.info));
         router.replace("/dashbord/home");
         setIsLoading(false);
       }
@@ -76,13 +71,6 @@ const Login = (props) => {
               Login
             </Button>
           </Col>
-          <Divider />
-          <span>
-            Don't have an account?
-            <Link href="/signUp" style={{ color: "#87d068" }}>
-              Sign Up
-            </Link>
-          </span>
         </Row>
       </Card>
     </div>

@@ -1,43 +1,37 @@
 import { PureHeader } from "../../../components/dashbord/main";
-import { Input, Button, Card, message, Popover, Form, Upload } from "antd";
-import { DeleteOutlined } from "@ant-design/icons";
-//import ReactQuill from "react-quill";
+import { Input, Button, message, Popover, Form, Upload } from "antd";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { addData, getOneData, deleteOneData } from "../../../api";
-import { UploadOutlined, InboxOutlined } from "@ant-design/icons";
-const normFile = (e) => {
-  console.log("Upload event:", e);
-  return e && e.fileList[0];
-};
+import { addDataName, getDataName } from "../../../api";
+import { Col } from "antd";
 const CreateNames = () => {
   const [Name, setName] = useState("");
   const [position, setPosition] = useState("");
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
   const router = useRouter();
-
   const handleNew = () => {
     setLoading(true);
-    addData(
+    addDataName(
       {
         Name,
         position,
       },
       (err, result) => {
         {
-          router.push("/dashbord/home");
+          router.push("/dashbord/names/CreateNames");
         }
       }
     );
   };
-
-  const handelDelete = () => {
-    deleteOneData(router.query.id, (err, result) => {
+  useEffect(() => {
+    getDataName((err, result) => {
       if (err) throw err;
-      else router.replace("/");
+      else {
+        setData(result);
+      }
     });
-  };
-
+  }, []);
   return (
     <div className="create-page">
       <PureHeader />
@@ -52,14 +46,12 @@ const CreateNames = () => {
           >
             Save
           </Button>
-          <Button type="primary" danger onClick={handelDelete}>
-            <DeleteOutlined />
-          </Button>
         </div>
 
-        <Form>
+        <Form style={{ padding: 10, margin: 10 }}>
           <Form.Item label="Name">
             <Input
+              style={{ maxWidth: 300 }}
               placeholder="Enter Your Name"
               value={Name}
               onChange={(e) => setName(e.target.value)}
@@ -67,12 +59,20 @@ const CreateNames = () => {
           </Form.Item>
           <Form.Item label="position">
             <Input
+              style={{ maxWidth: 300 }}
               placeholder="Enter Your Position"
               value={position}
               onChange={(e) => setPosition(e.target.value)}
             />
           </Form.Item>
         </Form>
+        <section className="container blog-list">
+          {data.map((name) => (
+            <Col md={8} sm={12} xs={24} key={name.id}>
+              <Name item={name} />
+            </Col>
+          ))}
+        </section>
       </main>
     </div>
   );

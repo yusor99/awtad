@@ -1,6 +1,12 @@
 import Link from "next/link";
 
 export const PureCard = ({ item }) => {
+  const handelDelete = () => {
+    deleteOneData(item.id, (err, result) => {
+      if (err) throw err;
+      else router.replace("/");
+    });
+  };
   return (
     <div className="blog-card">
       <img src={item.ImgUrl} />
@@ -11,6 +17,9 @@ export const PureCard = ({ item }) => {
           <a>View</a>
         </Link>
         <span>{item.Createat}</span>
+        <Button type="primary" danger onClick={handelDelete}>
+          <DeleteOutlined />
+        </Button>
       </div>
     </div>
   );
