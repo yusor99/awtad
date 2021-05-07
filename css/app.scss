@@ -1,5 +1,20 @@
 $headerHeigth: 65px;
+.lable {
+  margin-left: 10px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.blog-card-name {
+  width: 300px;
+}
+.blog-card-name-footer {
+  margin-top: 5px;
+}
+body {
+  direction: rtl;
+}
 .header-d {
+  direction: ltr;
   background-color: #221e13;
   height: $headerHeigth;
   .content {

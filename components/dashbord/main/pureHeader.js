@@ -2,7 +2,9 @@ import { Avatar, Popover, Button } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { useRouter } from "next/router";
 import Link from "next/link";
-
+/**   <Link href="/">
+              <li>كتب الموافقة</li>
+            </Link> */
 export const PureHeader = () => {
   const router = useRouter();
   //const name = JSON.parse(localStorage.getItem("blog_user"));
@@ -15,11 +17,8 @@ export const PureHeader = () => {
             <Link href="/dashbord/home">
               <li>المجلات</li>
             </Link>
-            <Link href="/dashbord/CreateNames">
+            <Link href="/dashbord/names/CreateNames">
               <li>اسرة المجلة</li>
-            </Link>
-            <Link href="/">
-              <li>كتب الموافقة</li>
             </Link>
           </ul>
           <div className="user-account">
@@ -27,8 +26,6 @@ export const PureHeader = () => {
             <Popover
               content={
                 <div>
-                  <Button type="text">Change password</Button>
-                  <br />
                   <Button
                     type="link"
                     onClick={() => {

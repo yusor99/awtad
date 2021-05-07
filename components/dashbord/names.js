@@ -1,5 +1,7 @@
 import { deleteOneDataName } from "../../api";
-const Name = ({ item }) => {
+import { Button } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
+const Names = ({ item }) => {
   const idName = item.id;
   const handelDelete = () => {
     deleteOneDataName(idName, (err, result) => {
@@ -8,10 +10,10 @@ const Name = ({ item }) => {
     });
   };
   return (
-    <div className="blog-card">
+    <div className="blog-card-name">
       <h3>{item.Name}</h3>
-      <small>{item.Position}</small>
-      <div className="blog-card-footer">
+      <span>{item.Position}</span>
+      <div className="blog-card-name-footer">
         <Button type="primary" danger onClick={handelDelete}>
           <DeleteOutlined />
         </Button>
@@ -21,4 +23,4 @@ const Name = ({ item }) => {
   );
 };
 
-export default Name;
+export default Names;

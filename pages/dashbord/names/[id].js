@@ -1,14 +1,15 @@
 import { PureHeader } from "../../../components/dashbord/main";
-import { Input, Button, message, Popover, Form, Upload } from "antd";
+import { Input, Button, Form } from "antd";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { addDataName, getDataName } from "../../../api";
 import { Col } from "antd";
+import Names from "../../../components/dashbord/names";
 const CreateNames = () => {
   const [Name, setName] = useState("");
   const [position, setPosition] = useState("");
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
+  const [dataName, setDataName] = useState([]);
   const router = useRouter();
   const handleNew = () => {
     setLoading(true);
@@ -28,7 +29,7 @@ const CreateNames = () => {
     getDataName((err, result) => {
       if (err) throw err;
       else {
-        setData(result);
+        setDataName(result.data);
       }
     });
   }, []);
@@ -49,27 +50,27 @@ const CreateNames = () => {
         </div>
 
         <Form style={{ padding: 10, margin: 10 }}>
-          <Form.Item label="Name">
+          <Form.Item label="الاسم : ">
             <Input
               style={{ maxWidth: 300 }}
-              placeholder="Enter Your Name"
+              placeholder="ادخل الاسم الثلاثي "
               value={Name}
               onChange={(e) => setName(e.target.value)}
             />
           </Form.Item>
-          <Form.Item label="position">
+          <Form.Item label="المنصب : ">
             <Input
               style={{ maxWidth: 300 }}
-              placeholder="Enter Your Position"
+              placeholder="ادخل المنصب الحالي في المجلة "
               value={position}
               onChange={(e) => setPosition(e.target.value)}
             />
           </Form.Item>
         </Form>
         <section className="container blog-list">
-          {data.map((name) => (
+          {dataName.map((name) => (
             <Col md={8} sm={12} xs={24} key={name.id}>
-              <Name item={name} />
+              <Names item={name} />
             </Col>
           ))}
         </section>

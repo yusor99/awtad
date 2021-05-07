@@ -1,9 +1,8 @@
 import { AuthContainer, PureHeader } from "../../../components/dashbord/main";
-import { Input, Button, Card, message, Form, Upload } from "antd";
+import { Input, Button, Card } from "antd";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { addData, getOneData } from "../../../api";
-import { UploadOutlined, InboxOutlined } from "@ant-design/icons";
+import { addData } from "../../../api";
 const Create = () => {
   const [Title, setTitle] = useState("");
   const [PdfUrl, setFile] = useState("");
@@ -11,13 +10,6 @@ const Create = () => {
   const [ImgUrl, setImage] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const normFile = (e) => {
-    console.log("Upload event:", e.fileList);
-    if (Array.isArray(e)) {
-      return e;
-    }
-    return e && e.fileList;
-  };
   const handleNew = () => {
     setLoading(true);
     addData(
@@ -46,15 +38,15 @@ const Create = () => {
               loading={loading}
               type="primary"
               onClick={handleNew}
-              disabled={Title && ImgUrl && Description && PdfUrl ? true : false}
+              disabled={Title && ImgUrl && Description && PdfUrl ? false : true}
             >
-              Save
+              حفظ المجلة
             </Button>
           </div>
           <Input.TextArea
             rows={4}
             style={{ marginTop: 20 }}
-            placeholder="Short Description . . ."
+            placeholder=" وصف المجلة .... "
             value={Description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -64,24 +56,24 @@ const Create = () => {
             title={
               <input
                 className="input-title"
-                placeholder="Write Blog title . . ."
+                placeholder="عنوان المجلة ..."
                 value={Title}
                 onChange={(e) => setTitle(e.target.value)}
               />
             }
           >
+            <label className="lable">حمل المجلة </label>
             <input
-              value={PdfUrl}
               type="file"
               onChange={(e) => {
                 setFile(e.target.files[0]);
               }}
             />
+            <label className="lable">حمل صورة المجلة </label>
             <input
-              name="choose Image"
+              title="choose Image"
               type="file"
               accept="image/*"
-              value={ImgUrl}
               onChange={(e) => {
                 setImage(e.target.files[0]);
               }}

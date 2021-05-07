@@ -57,13 +57,6 @@ const Home = () => {
                 </Col>
               ))}
             </Row>
-            <Row gutter={[30, 30]} style={{ marginTop: 30 }}>
-              {data.map((name) => (
-                <Col md={8} sm={12} xs={24} key={name.id}>
-                  <PureCard item={name} />
-                </Col>
-              ))}
-            </Row>
           </main>
         </div>
       </Spin>

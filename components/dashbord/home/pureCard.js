@@ -1,5 +1,6 @@
 import Link from "next/link";
-
+import { DeleteOutlined } from "@ant-design/icons";
+import { Button } from "antd";
 export const PureCard = ({ item }) => {
   const handelDelete = () => {
     deleteOneData(item.id, (err, result) => {
@@ -13,7 +14,7 @@ export const PureCard = ({ item }) => {
       <h3>{item.Title}</h3>
       <small>{item.Description}</small>
       <div className="blog-card-footer">
-        <Link href={`/blog/${item.id}`}>
+        <Link href={`/blog/${item.PdfUrl}`}>
           <a>View</a>
         </Link>
         <span>{item.Createat}</span>

@@ -5,12 +5,13 @@ import Head from "next/head";
 import Mobile from "./../components/mobile";
 import Item from "antd/lib/list/Item";
 import { Row, Col } from "antd";
+import Names from "./../components/dashbord/names";
 const About = () => {
   useEffect(() => {
     getDataName((err, result) => {
       if (err) throw err;
       else {
-        setData(result);
+        setData(result.data);
       }
     });
   }, []);
@@ -83,13 +84,13 @@ const About = () => {
         <section className="  container names">
           <h1>اسرة المجلة</h1>
           <div className="sec-names">
-            <Row>
-              {data.map((name) => (
+            <section className="container blog-list">
+              {dataName.map((name) => (
                 <Col md={8} sm={12} xs={24} key={name.id}>
-                  {Item.Position}.{Item.Name}
+                  <Names item={name} />
                 </Col>
               ))}
-            </Row>
+            </section>
           </div>
         </section>
         <Footer />
