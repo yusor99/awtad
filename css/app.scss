@@ -7,17 +7,18 @@ $headerHeigth: 65px;
 .blog-card-name {
   width: 300px;
 }
-.blog-card-name {
-  width: 270px;
-}
+
 .blog-card-name-footer {
   margin-top: 5px;
 }
-body {
+.dir {
   direction: rtl;
 }
 .header-d {
   direction: ltr;
+  body {
+    direction: rtl;
+  }
   background-color: #221e13;
   height: $headerHeigth;
   .content {

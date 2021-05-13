@@ -15,11 +15,15 @@ const Login = (props) => {
   useEffect(() => {
     inputRef.current.focus();
   }, []);
+
   const handlSubmit = () => {
     setIsLoading(true);
     login({ email, password }, (err, result) => {
-      if (err) throw err;
-      else {
+      if (err) {
+        setIsLoading(false);
+        message.error("your email or password is not correct" + err);
+        throw err;
+      } else {
         localStorage.setItem("blog_token", result.token);
         localStorage.setItem("blog_user", JSON.stringify(result.info));
         router.replace("/dashbord/home");

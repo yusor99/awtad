@@ -29,7 +29,7 @@ const Create = () => {
   };
   return (
     <AuthContainer>
-      <div className="create-page">
+      <div className="create-page dir">
         <PureHeader />
 
         <main className="container">
