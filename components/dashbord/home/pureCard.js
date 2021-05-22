@@ -15,7 +15,7 @@ export const PureCard = ({ item }) => {
       <small>{item.Description}</small>
       <div className="blog-card-footer">
         <Link href={`${item.PdfUrl}`}>
-          <a>View</a>
+          <a>View pdf file</a>
         </Link>
         <span>{item.Createat}</span>
         <Button type="primary" danger onClick={handelDelete}>
