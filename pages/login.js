@@ -20,9 +20,11 @@ const Login = (props) => {
     setIsLoading(true);
     login({ email, password }, (err, result) => {
       if (err) {
-        setIsLoading(false);
-        message.error("your email or password is not correct" + err);
         throw err;
+      }
+      if (!result.token) {
+        message.error(result.message);
+        setIsLoading(false);
       } else {
         localStorage.setItem("blog_token", result.token);
         localStorage.setItem("blog_user", JSON.stringify(result.info));
@@ -31,6 +33,7 @@ const Login = (props) => {
       }
     });
   };
+
   return (
     <div className=" login-page">
       <Card title="Login" bordered={true}>

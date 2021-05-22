@@ -15,12 +15,17 @@ export const login = (data, callback) => {
 };
 
 export const addData = (data, callback) => {
-  fetch(`${URL}/Journalnumber`, {
+  console.log(JSON.stringify(data));
+  fetch(`http://awtadjournal.com/laravel/public/api/Journalnumber`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      token: localStorage.getItem("blog_token"),
+      Accept: "application/json",
+      Authorization: "Bearer" + localStorage.getItem("blog_token"),
     },
+    processData: false,
+    mimeType: "multipart/form-data",
+    contentType: false,
     body: JSON.stringify(data),
   })
     .then((resp) => resp.json())
@@ -47,7 +52,10 @@ export const deleteOneData = (id, data, callback) => {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "Bearer" + localStorage.getItem("blog_token"),
     },
+    body: JSON.stringify(data),
   })
     .then((resp) => resp.json())
     .then((result) => callback(null, result))
@@ -60,7 +68,8 @@ export const addDataName = (data, callback) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      token: localStorage.getItem("blog_token"),
+      Authorization: "Bearer" + localStorage.getItem("blog_token"),
+      Accept: "application/json",
     },
     body: JSON.stringify(data),
   })
@@ -88,7 +97,10 @@ export const deleteOneDataName = (id, data, callback) => {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: "Bearer" + localStorage.getItem("blog_token"),
     },
+    body: JSON.stringify(data),
   })
     .then((resp) => resp.json())
     .then((result) => callback(null, result))

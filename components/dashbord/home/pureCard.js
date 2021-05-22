@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { DeleteOutlined } from "@ant-design/icons";
 import { Button } from "antd";
+import { deleteOneData } from "../../../api";
 export const PureCard = ({ item }) => {
   const handelDelete = () => {
     deleteOneData(item.id, (err, result) => {

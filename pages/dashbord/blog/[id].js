@@ -1,8 +1,10 @@
 import { AuthContainer, PureHeader } from "../../../components/dashbord/main";
-import { Input, Button, Card } from "antd";
+import { Input, Button, Card, message, Upload } from "antd";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { addData } from "../../../api";
+import { UploadOutlined } from "@ant-design/icons";
+
 const Create = () => {
   const [Title, setTitle] = useState("");
   const [PdfUrl, setFile] = useState("");
@@ -10,6 +12,17 @@ const Create = () => {
   const [ImgUrl, setImage] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  const handleUpload = ({ fileList }) => {
+    if (fileList[0]) {
+      setImage(fileList[0].originFileObj);
+    }
+  };
+  const handleUploadf = ({ fileList }) => {
+    if (fileList[0]) {
+      setFile(fileList[0].originFileObj.name);
+    }
+  };
   const handleNew = () => {
     setLoading(true);
     addData(
@@ -21,8 +34,13 @@ const Create = () => {
       },
       (err, result) => {
         if (err) throw err;
-        else {
+        if (!result.message) {
           router.push("/dashbord/home");
+        } else {
+          console.log(result.errors);
+
+          message.error(result.message);
+          setLoading(false);
         }
       }
     );
@@ -63,21 +81,17 @@ const Create = () => {
             }
           >
             <label className="lable">حمل المجلة </label>
-            <input
-              type="file"
-              onChange={(e) => {
-                setFile(e.target.files[0]);
-              }}
-            />
+            <Upload onChange={handleUploadf} maxCount={1}>
+              <Button icon={<UploadOutlined />} className="input" type="dashed">
+                Upload pdf file
+              </Button>
+            </Upload>
             <label className="lable">حمل صورة المجلة </label>
-            <input
-              title="choose Image"
-              type="file"
-              accept="image/*"
-              onChange={(e) => {
-                setImage(e.target.files[0]);
-              }}
-            />
+            <Upload onChange={handleUpload} listType="picture" maxCount={1}>
+              <Button icon={<UploadOutlined />} className="input" type="dashed">
+                Upload image
+              </Button>
+            </Upload>
           </Card>
         </main>
       </div>

@@ -28,8 +28,13 @@ const CreateNames = () => {
   useEffect(() => {
     getDataName((err, result) => {
       if (err) throw err;
-      else {
+      if (!result.message) {
         setDataName(result.data);
+      } else {
+        console.log(result.errors);
+        console.log(result.message);
+        message.error(result.message);
+        setLoading(false);
       }
     });
   }, []);
