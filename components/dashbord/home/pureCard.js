@@ -14,7 +14,7 @@ export const PureCard = ({ item }) => {
       <h3>{item.Title}</h3>
       <small>{item.Description}</small>
       <div className="blog-card-footer">
-        <Link href={`/blog/${item.PdfUrl}`}>
+        <Link href={`${item.PdfUrl}`}>
           <a>View</a>
         </Link>
         <span>{item.Createat}</span>
