@@ -1,9 +1,9 @@
 import { PureHeader } from "../../../components/dashbord/main";
-import { Input, Button, Form } from "antd";
+import { Input, Button, Form, message, Col } from "antd";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { addDataName, getDataName } from "../../../api";
-import { Col } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 import Names from "../../../components/dashbord/names";
 const CreateNames = () => {
   const [Name, setName] = useState("");
@@ -19,8 +19,14 @@ const CreateNames = () => {
         position,
       },
       (err, result) => {
-        {
+        if (err) throw err;
+        if (!result.message) {
+          console.log("finalllllly " + result);
           router.push("/dashbord/names/CreateNames");
+        } else {
+          console.log(result.errors);
+          message.error(result.message);
+          setLoading(false);
         }
       }
     );
@@ -32,7 +38,7 @@ const CreateNames = () => {
         setDataName(result.data);
       } else {
         console.log(result.errors);
-        console.log(result.message);
+
         message.error(result.message);
         setLoading(false);
       }
@@ -57,8 +63,9 @@ const CreateNames = () => {
         <Form style={{ padding: 10, margin: 10 }}>
           <Form.Item label="الاسم : ">
             <Input
+              placeholder="ادخل الاسم الثلاثي"
+              prefix={<UserOutlined />}
               style={{ maxWidth: 300 }}
-              placeholder="ادخل الاسم الثلاثي "
               value={Name}
               onChange={(e) => setName(e.target.value)}
             />
