@@ -7,22 +7,12 @@ import { UploadOutlined } from "@ant-design/icons";
 
 const Create = () => {
   const [Title, setTitle] = useState("");
-  const [PdfUrl, setFile] = useState("");
+  const [PdfUrl, setFile] = useState();
   const [Description, setDescription] = useState("");
-  const [ImgUrl, setImage] = useState("");
+  const [ImgUrl, setImage] = useState();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const handleUpload = ({ fileList }) => {
-    if (fileList[0]) {
-      setImage(fileList[0].originFileObj);
-    }
-  };
-  const handleUploadf = ({ fileList }) => {
-    if (fileList[0]) {
-      setFile(fileList[0].originFileObj.name);
-    }
-  };
   const handleNew = () => {
     setLoading(true);
     addData(
@@ -33,14 +23,16 @@ const Create = () => {
         PdfUrl,
       },
       (err, result) => {
-        if (err) throw err;
-        if (!result.message) {
-          router.push("/dashbord/home");
-        } else {
-          console.log(result.errors);
+        console.log("result = " + result);
+        console.log("error = " + err);
 
+        if (err) throw err;
+        if (result.message == "The given data was invalid.") {
           message.error(result.message);
           setLoading(false);
+        } else {
+          setLoading(false);
+          router.push("/dashbord/home");
         }
       }
     );
@@ -51,48 +43,52 @@ const Create = () => {
         <PureHeader />
 
         <main className="container">
-          <div className="search-box">
-            <Button
-              loading={loading}
-              type="primary"
-              onClick={handleNew}
-              disabled={Title && ImgUrl && Description && PdfUrl ? false : true}
+          <div className="dash-card">
+            <Card
+              style={{ marginTop: 20 }}
+              title={
+                <Button
+                  loading={loading}
+                  type="primary"
+                  onClick={handleNew}
+                  disabled={
+                    Title && ImgUrl && Description && PdfUrl ? false : true
+                  }
+                >
+                  حفظ المجلة
+                </Button>
+              }
             >
-              حفظ المجلة
-            </Button>
-          </div>
-          <Input.TextArea
-            rows={4}
-            style={{ marginTop: 20 }}
-            placeholder=" وصف المجلة .... "
-            value={Description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-
-          <Card
-            style={{ marginTop: 20 }}
-            title={
               <input
                 className="input-title"
                 placeholder="عنوان المجلة ..."
                 value={Title}
                 onChange={(e) => setTitle(e.target.value)}
               />
-            }
-          >
-            <label className="lable">حمل المجلة </label>
-            <Upload onChange={handleUploadf} maxCount={1}>
-              <Button icon={<UploadOutlined />} className="input" type="dashed">
-                Upload pdf file
-              </Button>
-            </Upload>
-            <label className="lable">حمل صورة المجلة </label>
-            <Upload onChange={handleUpload} listType="picture" maxCount={1}>
-              <Button icon={<UploadOutlined />} className="input" type="dashed">
-                Upload image
-              </Button>
-            </Upload>
-          </Card>
+              <Input.TextArea
+                rows={4}
+                style={{ marginTop: 20 }}
+                placeholder=" وصف المجلة .... "
+                value={Description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+              <label className="lable">حمل المجلة </label>
+              <input
+                type="file"
+                name=""
+                id="pdf"
+                onChange={(e) => setFile(e.target.files[0])}
+              />
+              <label className="lable">حمل صورة المجلة </label>
+              <input
+                type="file"
+                name=""
+                id="img"
+                placeholder="image"
+                onChange={(e) => setImage(e.target.files[0])}
+              />
+            </Card>
+          </div>
         </main>
       </div>
     </AuthContainer>

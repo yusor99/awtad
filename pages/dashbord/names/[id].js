@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { addDataName, getDataName } from "../../../api";
 import { UserOutlined } from "@ant-design/icons";
 import Names from "../../../components/dashbord/names";
+import { AuthContainer } from "./../../../components/dashbord/main/authContainer";
 const CreateNames = () => {
   const [Name, setName] = useState("");
   const [position, setPosition] = useState("");
@@ -20,12 +21,12 @@ const CreateNames = () => {
       },
       (err, result) => {
         if (err) throw err;
-        if (!result.message) {
-          console.log("finalllllly " + result);
-          router.push("/dashbord/names/CreateNames");
+        if (!result.error) {
+          router.reload();
+          setLoading(false);
         } else {
-          console.log(result.errors);
-          message.error(result.message);
+          console.log("result.errors  " + result.errors);
+          message.error("result.message  " + result.message);
           setLoading(false);
         }
       }
@@ -45,49 +46,51 @@ const CreateNames = () => {
     });
   }, []);
   return (
-    <div className="create-page  dir">
-      <PureHeader />
+    <AuthContainer>
+      <div className="create-page  dir">
+        <PureHeader />
 
-      <main className="container">
-        <div className="search-box">
-          <Button
-            loading={loading}
-            type="primary"
-            onClick={handleNew}
-            disabled={Name && position ? false : true}
-          >
-            Save
-          </Button>
-        </div>
+        <main className="container">
+          <div className="search-box">
+            <Button
+              loading={loading}
+              type="primary"
+              onClick={handleNew}
+              disabled={Name && position ? false : true}
+            >
+              Save
+            </Button>
+          </div>
 
-        <Form style={{ padding: 10, margin: 10 }}>
-          <Form.Item label="الاسم : ">
-            <Input
-              placeholder="ادخل الاسم الثلاثي"
-              prefix={<UserOutlined />}
-              style={{ maxWidth: 300 }}
-              value={Name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </Form.Item>
-          <Form.Item label="المنصب : ">
-            <Input
-              style={{ maxWidth: 300 }}
-              placeholder="ادخل المنصب الحالي في المجلة "
-              value={position}
-              onChange={(e) => setPosition(e.target.value)}
-            />
-          </Form.Item>
-        </Form>
-        <section className="container blog-list">
-          {dataName.map((name) => (
-            <Col md={8} sm={12} xs={24} key={name.id}>
-              <Names item={name} />
-            </Col>
-          ))}
-        </section>
-      </main>
-    </div>
+          <Form style={{ padding: 10, margin: 10 }}>
+            <Form.Item label="الاسم : ">
+              <Input
+                placeholder="ادخل الاسم الثلاثي"
+                prefix={<UserOutlined />}
+                style={{ maxWidth: 300 }}
+                value={Name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </Form.Item>
+            <Form.Item label="المنصب : ">
+              <Input
+                style={{ maxWidth: 300 }}
+                placeholder="ادخل المنصب الحالي في المجلة "
+                value={position}
+                onChange={(e) => setPosition(e.target.value)}
+              />
+            </Form.Item>
+          </Form>
+          <section className="container blog-list">
+            {dataName.map((name) => (
+              <Col md={8} sm={12} xs={24} key={name.id}>
+                <Names item={name} />
+              </Col>
+            ))}
+          </section>
+        </main>
+      </div>
+    </AuthContainer>
   );
 };
 
