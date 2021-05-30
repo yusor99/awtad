@@ -1,9 +1,8 @@
 import { AuthContainer, PureHeader } from "../../../components/dashbord/main";
 import { Input, Button, Card, message, Upload } from "antd";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { addData } from "../../../api";
-import { UploadOutlined } from "@ant-design/icons";
 
 const Create = () => {
   const [Title, setTitle] = useState("");
@@ -32,7 +31,7 @@ const Create = () => {
           setLoading(false);
         } else {
           setLoading(false);
-          router.push("/dashbord/home");
+          router.replace("/dashbord/home");
         }
       }
     );

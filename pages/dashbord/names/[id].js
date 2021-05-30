@@ -22,7 +22,7 @@ const CreateNames = () => {
       (err, result) => {
         if (err) throw err;
         if (!result.error) {
-          router.reload();
+          router.replace("/dashbord/home");
           setLoading(false);
         } else {
           console.log("result.errors  " + result.errors);

@@ -2,9 +2,8 @@ import { Card, Input, Row, Col, Button, message, Divider } from "antd";
 import { MailOutlined } from "@ant-design/icons";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { login } from "../api";
-const Login = (props) => {
+const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();

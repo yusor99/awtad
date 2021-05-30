@@ -31,7 +31,7 @@ export const deleteOneData = (id, data, callback) => {
   var myHeaders = new Headers();
   myHeaders.append(
     "Authorization",
-    `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hd3RhZGpvdXJuYWwuY29tXC9sYXJhdmVsXC9wdWJsaWNcL2FwaVwvbG9naW4iLCJpYXQiOjE2MjIyMjU3ODgsImV4cCI6MjI0NDMwNTc4OCwibmJmIjoxNjIyMjI1Nzg4LCJqdGkiOiJucUJOTHRnblpQTzJYcHBLIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.hlSi_pUycy87kwAuWvtG08vYfLezdUl_fXXrfjcdHzA`
+    `Bearer ${localStorage.getItem("blog_token")}`
   );
   myHeaders.append("Accept", "application/json");
   var requestOptions = {
@@ -115,7 +115,7 @@ export const addData = (data, callback) => {
   myHeaders.append("Accept", "application/json");
   myHeaders.append(
     "Authorization",
-    "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hd3RhZGpvdXJuYWwuY29tXC9sYXJhdmVsXC9wdWJsaWNcL2FwaVwvbG9naW4iLCJpYXQiOjE2MjIyMjU3ODgsImV4cCI6MjI0NDMwNTc4OCwibmJmIjoxNjIyMjI1Nzg4LCJqdGkiOiJucUJOTHRnblpQTzJYcHBLIiwic3ViIjoxLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.hlSi_pUycy87kwAuWvtG08vYfLezdUl_fXXrfjcdHzA"
+    `Bearer ${localStorage.getItem("blog_token")}`
   );
   myHeaders.append(
     "Cookie",

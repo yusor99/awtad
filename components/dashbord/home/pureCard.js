@@ -14,9 +14,8 @@ export const PureCard = ({ item }) => {
     deleteOneData(item.id, { T, D, I, P }, (err, result) => {
       if (err) throw err;
       if (!result.error) {
-        router.reload();
         setLoading(false);
-        router.replace("/");
+        router.replace("/dashbord/home");
       } else {
         console.log("result.errors  " + result.errors);
         message.error("result.message  " + result.message);

@@ -18,9 +18,8 @@ const Names = ({ item }) => {
       (err, result) => {
         if (err) throw err;
         if (!result.error) {
-          router.reload();
           setLoading(false);
-          router.replace("/dashbord/names/CreateNames");
+          router.replace("/dashbord/home");
         } else {
           console.log("result.mess  " + result.message);
           console.log("result.errors  " + result.errors);
