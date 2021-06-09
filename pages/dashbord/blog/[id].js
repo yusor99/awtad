@@ -31,7 +31,7 @@ const Create = () => {
           setLoading(false);
         } else {
           setLoading(false);
-          router.replace("/dashbord/home");
+          router.replace("./pages/dashbord/home");
         }
       }
     );

@@ -19,7 +19,7 @@ const Names = ({ item }) => {
         if (err) throw err;
         if (!result.error) {
           setLoading(false);
-          router.replace("/dashbord/home");
+          router.replace("./pages/dashbord/home");
         } else {
           console.log("result.mess  " + result.message);
           console.log("result.errors  " + result.errors);

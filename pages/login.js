@@ -27,7 +27,7 @@ const Login = () => {
       } else {
         localStorage.setItem("blog_token", result.token);
         localStorage.setItem("blog_user", JSON.stringify(result.info));
-        router.replace("/dashbord/home");
+        router.replace("../pages/dashbord/home");
         setIsLoading(false);
       }
     });

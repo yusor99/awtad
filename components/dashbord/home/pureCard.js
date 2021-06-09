@@ -15,7 +15,7 @@ export const PureCard = ({ item }) => {
       if (err) throw err;
       if (!result.error) {
         setLoading(false);
-        router.replace("/dashbord/home");
+        router.replace("./pages/dashbord/home");
       } else {
         console.log("result.errors  " + result.errors);
         message.error("result.message  " + result.message);
